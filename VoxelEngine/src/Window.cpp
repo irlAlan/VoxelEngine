@@ -1,4 +1,3 @@
-#include "VEngine/Types.h"
 #include <VEngine/Window.h>
 
 namespace VEngine{
@@ -8,7 +7,7 @@ namespace VEngine{
   {}
 
 
-  Window::Window(std::string title, Types::Vec2d dim, Types::RGBA backgroundCol, bool resizable)
+  Window::Window(std::string title, Vec2d dim, RGBA backgroundCol, bool resizable)
   : _title(title), _resizable(resizable), _dimensions(dim), _backgroundCol(backgroundCol)
   {
     if(glfwInit() == GLFW_FALSE){
@@ -47,7 +46,7 @@ namespace VEngine{
       glfwSwapBuffers(window);
   }
 
-  void Window::clearScreen(Types::RGBA col={1.0f,1.0f,1.0f,1.0f}){
+  void Window::clearScreen(RGBA col={1.0f,1.0f,1.0f,1.0f}){
       // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
       glClearColor(col.x(), col.y(), col.z(), col.w());
       glClear(GL_COLOR_BUFFER_BIT);

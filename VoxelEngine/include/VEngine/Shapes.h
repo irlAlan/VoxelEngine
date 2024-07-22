@@ -7,7 +7,6 @@
 namespace VEngine{
 class Shapes{
   public:
-    using VertexBuffObj = unsigned int;
   public:
     Shapes();
     ~Shapes() = default;
