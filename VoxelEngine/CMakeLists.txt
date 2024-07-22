@@ -27,6 +27,7 @@ find_package(Eigen3 3.4 REQUIRED)
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib/glad)
 
 # add_executable(${PROJECT_NAME} ${SRC_FILES} ${GLAD_SRC} ${HEADER_FILES})
+
 add_library(${PROJECT_NAME} SHARED
   ./src/glad/glad.c
   ./src/VEngine/VEngine.cpp
@@ -37,13 +38,16 @@ add_library(${PROJECT_NAME} SHARED
   # HEADER files
   ./include/glad/glad.h
   ./include/KHR/khrplatform.h
+  ./include/VEngine/Core/Logger.h
+  ./include/VEngine/Core/Logger.inl
+  ./include/VEngine/Core/CoreDefines.h
   ./include/VEngine/Core/CoreIncludes.h
-  ./include/VEngine/Types.h
   ./include/VEngine/Shapes.h
   ./include/VEngine/Window.h
   ./include/VEngine/Shaders.h
   ./include/VEngine/VEngine.h
 )
+
 
 target_include_directories(${PROJECT_NAME} INTERFACE ./include)
 target_include_directories(${PROJECT_NAME} INTERFACE ./src)

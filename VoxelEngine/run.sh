@@ -16,3 +16,4 @@ cp -r include ../VETest/include/;
 printf "Finished with VoxelEngine\n\n\n";
 
 cd ../VETest/; ./run.sh;
+

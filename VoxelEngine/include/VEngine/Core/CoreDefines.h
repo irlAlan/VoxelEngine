@@ -1,6 +1,7 @@
 #pragma once
 
 #include <eigen3/Eigen/Dense>
+#include <string>
 #include <memory>
 
 
@@ -23,6 +24,9 @@ using f64 = double;
 // bool types
 using b8 = char;
 using b32 = int;
+
+// string wrapper
+using str = std::string;
 
 static_assert(sizeof(u8)  == 1, "Expected u8 to be 1 byte.");
 static_assert(sizeof(u16) == 2, "Expected u16 to be 2 byte.");
