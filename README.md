@@ -36,11 +36,12 @@ etc
         - Researching Program architecture
 
 ## TODO:
-    - [ ] Add easier type defs and how to do logging and asserts in c++
+    - [x] Add easier type defs and how to do logging and asserts in c++
     - [ ] refactor of current code
     - [ ] (potential) renaming of files and file structure
     - [ ] make cmake file more cross-platform
 
 
-VoxelEngine (.do, .dll) <-editor <- test bed,  GameApplicaiton -> hot reloading
+VoxelEngine (.so, .dll)
+editor ui is going to be seperate to actual engine and will probably be made using c# and avaloniaUI if i decide to add ui
 

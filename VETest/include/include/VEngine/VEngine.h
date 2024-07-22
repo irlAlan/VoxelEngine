@@ -6,7 +6,7 @@
 namespace VEngine
 {
 
-class VEAPI VEngine {
+class VENGINE_API VEngine {
 public:
   VEngine();
   virtual ~VEngine();

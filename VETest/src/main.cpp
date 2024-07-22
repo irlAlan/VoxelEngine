@@ -1,4 +1,5 @@
 #include <VEngine/VEngine.h>
+#include <VEngine/Core/Logger.h>
 #include <fmt/core.h>
 
 class Engine : public VEngine::VEngine
@@ -17,7 +18,5 @@ public:
 
 int main()
 {
-  Engine engine;
-  engine.run();
   return 0;
 }

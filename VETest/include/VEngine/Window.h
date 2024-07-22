@@ -1,5 +1,4 @@
-#ifndef WINDOWSETTINGS_H
-#define WINDOWSETTINGS_H
+#pragma once
 
 #include <VEngine/Core/CoreIncludes.h>
 #include <fmt/core.h>
@@ -8,22 +7,22 @@ namespace VEngine {
 
 struct WindowConf{
   const std::string title{"Default Window"};
-  const Types::Vec2d dim{{500, 450}};
-  const Types::RGBA backgroundCol{{0.4f, 0.2f, 0.6f, 1.0f}};
+  const Vec2d dim{{500, 450}};
+  const RGBA backgroundCol{{0.4f, 0.2f, 0.6f, 1.0f}};
   const bool resizable{false};
 };
 
 
 class Window {
 public:
-  Window(std::string title, Types::Vec2d dim, Types::RGBA backgroundCol, bool resizable);
+  Window(std::string title, Vec2d dim, RGBA backgroundCol, bool resizable);
   Window(const WindowConf& conf);
 
   void displayWindow();
   std::string getTitle() const { return _title; }
-  Types::Vec2d getDimensions() const { return _dimensions; }
-  Types::RGBA getBackgroundCol() const { return _backgroundCol; }
-  void clearScreen(Types::RGBA col);
+  Vec2d getDimensions() const { return _dimensions; }
+  RGBA getBackgroundCol() const { return _backgroundCol; }
+  void clearScreen(RGBA col);
 
   bool windowIsOpen();
   void exitWindow(std::string message, int exit_code);
@@ -32,8 +31,8 @@ private:
   GLFWwindow *window;
   std::string _title{"hey"};
   bool _resizable;
-  Types::Vec2d _dimensions{100, 100};
-  Types::RGBA _backgroundCol{0.7f, 0.7f, 0.7f, 1.0f};
+  Vec2d _dimensions{100, 100};
+  RGBA _backgroundCol{0.7f, 0.7f, 0.7f, 1.0f};
 
 //private:
 
@@ -78,4 +77,3 @@ public:
   }
 };
 } // namespace VEngine
-#endif // !WINDOWSETTINGS_H

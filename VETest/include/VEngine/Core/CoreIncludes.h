@@ -1,7 +1,6 @@
-#ifndef CORE_INCLUDES_H
-#define CORE_INCLUDES_H
+#pragma once
 
-// #include <Eigen/Dense>
+#include <VEngine/Core/CoreDefines.h>
 #include <eigen3/Eigen/Dense>
 
 #define GLFW_INCLUDE_NONE
@@ -11,7 +10,3 @@
 
 #include <fmt/core.h>
 #include <fmt/ostream.h>
-
-#include <VEngine/Types.h>
-
-#endif // !CORE_INCLUDES_H
