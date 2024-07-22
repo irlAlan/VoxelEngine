@@ -5,14 +5,14 @@ prinf "Started VoxelEngine Build...\n\n\n";
 cmake -B build/;
 cmake --build build/;
 
-printf "Moving VoxelEngine .so to samples\n\n\n";
+printf "Moving VoxelEngine .so to VETest\n\n\n";
 
-mv ./build/libVoxelEngine.so ./samples/VoxelExampleApp/lib/;
+mv ./build/libVoxelEngine.so  ../VETest/lib/
 
 printf "Copying includes over to samples\n\n\n";
 
-cp -r include samples/VoxelExampleApp/ ;
+cp -r include ../VETest/include/;
 
 printf "Finished with VoxelEngine\n\n\n";
 
-cd ./samples/VoxelExampleApp; ./run.sh;
+cd ../VETest/; ./run.sh;

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SHADER_H
+#define SHADER_H
 
 #include <string_view>
 
@@ -15,3 +16,5 @@ public:
   void setInt(std::string_view name, int value)const;
   void setFloat(std::string_view name, float value)const;
 };
+
+#endif

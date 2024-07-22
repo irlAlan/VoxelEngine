@@ -1,6 +1,8 @@
-#pragma once
+#ifndef V_ENGINE_H
+#define V_ENGINE_H
 
-#include <VEngine/Core/CoreDefines.h>
+
+#include <API/VEngine.h>
 // #include <memory>
 
 namespace VEngine
@@ -47,3 +49,4 @@ private:
 // } // namespace VEngine
 //
 //
+#endif // !V_ENGINE
