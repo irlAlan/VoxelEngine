@@ -1,5 +1,4 @@
-#ifndef SHAPES_H
-#define SHAPES_H
+#pragma once
 
 #include <eigen3/Eigen/Core>
 #include <fmt/core.h>
@@ -15,6 +14,3 @@ class Shapes{
   private:
   };
 }
-
-#endif // !SHAPES_H
-

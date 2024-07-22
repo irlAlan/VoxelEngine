@@ -1,5 +1,4 @@
-#ifndef CORE_INCLUDES_H
-#define CORE_INCLUDES_H
+#pragma once
 
 // #include <Eigen/Dense>
 #include <eigen3/Eigen/Dense>
@@ -13,5 +12,3 @@
 #include <fmt/ostream.h>
 
 #include <VEngine/Types.h>
-
-#endif // !CORE_INCLUDES_H

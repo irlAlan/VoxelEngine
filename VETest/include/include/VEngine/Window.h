@@ -1,5 +1,4 @@
-#ifndef WINDOWSETTINGS_H
-#define WINDOWSETTINGS_H
+#pragma once
 
 #include <VEngine/Core/CoreIncludes.h>
 #include <fmt/core.h>
@@ -78,4 +77,3 @@ public:
   }
 };
 } // namespace VEngine
-#endif // !WINDOWSETTINGS_H

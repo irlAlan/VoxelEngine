@@ -1,6 +1,4 @@
-#ifndef TYPES_H
-#define TYPES_H
-
+#pragma once
 // #include <Eigen/Dense>
 #include <eigen3/Eigen/Dense>
 
@@ -10,5 +8,3 @@ namespace VEngine{
     using RGBA = Eigen::Matrix<float, 1, 4>;
   }
 }
-
-#endif // TYPES_H

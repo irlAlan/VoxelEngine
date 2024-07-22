@@ -1,7 +1,5 @@
 #pragma once
 
-#include <eigen3/Eigen/Dense>
-#include <memory>
 
 
 // unsigned types
@@ -20,9 +18,6 @@ using i64 = signed long long;
 using f32 = float;
 using f64 = double;
 
-// bool types
-using b8 = char;
-using b32 = int;
 
 static_assert(sizeof(u8)  == 1, "Expected u8 to be 1 byte.");
 static_assert(sizeof(u16) == 2, "Expected u16 to be 2 byte.");
@@ -37,24 +32,8 @@ static_assert(sizeof(i64) == 8, "Expected i64 to be 8 byte.");
 static_assert(sizeof(f32) == 4, "Expected f32 to be 4 byte.");
 static_assert(sizeof(f64) == 8, "Expected f64 to be 8 byte.");
 
-// boolean values
 #define true 1
 #define false 0
-
-// memory pointers defs
-template <typename T>
-using uptr = std::unique_ptr<T>;
-
-/* Matrix<2, 1>
- * [int]
- * [int]
-*/
-using Vec2d = Eigen::Matrix<int, 2,1>;
-
-/* Matrix<1, 4>
- * [float][float][float][float]
-*/
-using RGBA = Eigen::Matrix<float, 1, 4>;
 
 #ifdef __cplusplus
 extern "C"{
@@ -64,9 +43,9 @@ extern "C"{
 
 #if defined(_WIN32)
   #ifdef VENGINE_API_EXPORTS
-    #define VENGINE_API __declspec(dllexport)
+    #define VEAPI __declspec(dllexport)
   #else
-    #define VENGINE_API __declspec(dllimport)
+    #define VEAPI __declspec(dllimport)
   #endif
 #else
   #define VENGINE_API 
