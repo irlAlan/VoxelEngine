@@ -37,6 +37,7 @@ etc
 
 ## TODO:
     - [x] Add easier type defs and how to do logging and asserts in c++
+    - [ ] Add Tests
     - [ ] refactor of current code
     - [ ] (potential) renaming of files and file structure
     - [ ] make cmake file more cross-platform
