@@ -3,11 +3,10 @@
 #include <VEngine/Shaders.h>
 #include <fstream>
 #include <sstream>
-#include <string_view>
 
-Shaders::Shaders(std::string_view vertexPath, std::string_view fragmentPath){
+Shaders::Shaders(stringv vertexPath, stringv fragmentPath){
   // get source from files
-  std::string vertexSource, fragmentSource;
+  string vertexSource, fragmentSource;
   std::ifstream vShaderFile{vertexPath.data()};
   std::ifstream fShaderFile{fragmentPath.data()};
   if(fShaderFile.is_open()){
@@ -68,6 +67,6 @@ void Shaders::unuseShaderProgram(){
   glUseProgram(0);
 }
 
-void Shaders::setBool(std::string_view name, bool value)const{glUniform1i(glGetUniformLocation(ID, name.data()), (int)value);}
-void Shaders::setInt(std::string_view name, int value)const{glUniform1i(glGetUniformLocation(ID, name.data()), value);}
-void Shaders::setFloat(std::string_view name, float value)const{glUniform1i(glGetUniformLocation(ID, name.data()), value);}
+void Shaders::setBool(stringv name, bool value)const{glUniform1i(glGetUniformLocation(ID, name.data()), (int)value);}
+void Shaders::setInt(stringv name, int value)const{glUniform1i(glGetUniformLocation(ID, name.data()), value);}
+void Shaders::setFloat(stringv name, float value)const{glUniform1i(glGetUniformLocation(ID, name.data()), value);}

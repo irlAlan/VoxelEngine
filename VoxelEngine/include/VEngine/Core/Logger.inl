@@ -29,7 +29,7 @@ void shutdownLogging(){
 
 
 template<typename ...T>
-VENGINE_API void Log::VFATAL(str message, T ...args){
+VENGINE_API void Log::VFATAL(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::FATAL,message, arg);
@@ -40,7 +40,7 @@ VENGINE_API void Log::VFATAL(str message, T ...args){
 
 
 template<typename... T>
-VENGINE_API void Log::VERROR(str message, T ...args){
+VENGINE_API void Log::VERROR(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::ERROR,message, arg);
@@ -50,7 +50,7 @@ VENGINE_API void Log::VERROR(str message, T ...args){
 }
 
 template<typename... T>
-VENGINE_API void Log::VWARN(str message, T ...args){
+VENGINE_API void Log::VWARN(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::WARN,message, arg);
@@ -60,7 +60,7 @@ VENGINE_API void Log::VWARN(str message, T ...args){
 }
 
 template<typename... T>
-VENGINE_API void Log::VINFO(str message, T ...args){
+VENGINE_API void Log::VINFO(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::INFO,message, arg);
@@ -69,7 +69,7 @@ VENGINE_API void Log::VINFO(str message, T ...args){
   (formatArgs(args), ...);
 }
 
-template<typename... T> VENGINE_API void Log::VDEBUG(str message, T ...args){
+template<typename... T> VENGINE_API void Log::VDEBUG(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::DEBUG,message, arg);
@@ -79,7 +79,7 @@ template<typename... T> VENGINE_API void Log::VDEBUG(str message, T ...args){
 }
 
 template<typename... T>
-VENGINE_API void Log::VTRACE(str message, T ...args){
+VENGINE_API void Log::VTRACE(stringv message, T ...args){
   auto formatArgs{
     [&message, this](const auto &arg){
       _logOutput(LogLevel::TRACE,message, arg);
@@ -91,10 +91,10 @@ VENGINE_API void Log::VTRACE(str message, T ...args){
 // TODO: Test this function
 // https://stackoverflow.com/questions/4191089/how-to-unit-test-function-writing-to-stdout-stdcout
 template<typename ...T>
-VENGINE_API void Log::_logOutput(LogLevel level, str message, T &...args){
-  str logStr[6]{"[FATAL]: ", "[ERROR]: ", "[WARN]: ", "[INFO]: ", "[DEBUG]: ", "[TRACE]: "};
+VENGINE_API void Log::_logOutput(LogLevel level, stringv message, T &...args){
+  string logStr[6]{"[FATAL]: ", "[ERROR]: ", "[WARN]: ", "[INFO]: ", "[DEBUG]: ", "[TRACE]: "};
 
-  str formatStr{logStr[static_cast<u16>(level)]+message};
+  string formatStr{logStr[static_cast<u16>(level)]+message};
   auto formatArgs{
     [&formatStr](const auto &arg){
       formatStr.append(arg);

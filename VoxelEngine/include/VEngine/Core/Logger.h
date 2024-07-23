@@ -39,24 +39,24 @@ public:
   void shutdownLogging();
 
   template<typename... T>
-  VENGINE_API void VFATAL(str message, T ...args);
+  VENGINE_API void VFATAL(stringv message, T ...args);
   template<typename... T>
-  VENGINE_API void VERROR(str message, T ...args);
+  VENGINE_API void VERROR(stringv message, T ...args);
   template<typename... T>
-  VENGINE_API void VWARN(str message, T ...args);
+  VENGINE_API void VWARN(stringv message, T ...args);
   template<typename... T>
-  VENGINE_API void VINFO(str message, T ...args);
+  VENGINE_API void VINFO(stringv message, T ...args);
   template<typename... T>
-  VENGINE_API void VDEBUG(str message, T ...args);
+  VENGINE_API void VDEBUG(stringv message, T ...args);
   template<typename... T>
-  VENGINE_API void VTRACE(str message, T ...args);
+  VENGINE_API void VTRACE(stringv message, T ...args);
 
   VENGINE_API static uptr<Log> Instance();
 protected:
   Log() = default;
 private:
   template<typename... T>
-  VENGINE_API void _logOutput(LogLevel level, std::string message, T &...args);
+  VENGINE_API void _logOutput(LogLevel level, stringv message, T &...args);
   static uptr<Log> Instance_;
   static std::mutex m_;
 

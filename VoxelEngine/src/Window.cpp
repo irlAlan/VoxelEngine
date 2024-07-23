@@ -7,7 +7,7 @@ namespace VEngine{
   {}
 
 
-  Window::Window(std::string title, Vec2d dim, RGBA backgroundCol, bool resizable)
+  Window::Window(stringv title, ivec2 dim, rgba backgroundCol, bool resizable)
   : _title(title), _resizable(resizable), _dimensions(dim), _backgroundCol(backgroundCol)
   {
     if(glfwInit() == GLFW_FALSE){
@@ -22,7 +22,7 @@ namespace VEngine{
       glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
 
-    window = glfwCreateWindow(dim.x(), dim.y(),title.c_str(), nullptr,nullptr);
+    window = glfwCreateWindow(dim.x, dim.y,title.data(), nullptr,nullptr);
     if (window == NULL)
     {
       exitWindow("Could not create Window", -1);
@@ -33,7 +33,7 @@ namespace VEngine{
     {
       exitWindow("Failed to initialize GLAD", -1);
     }
-    glViewport(0, 0, dim.x(),dim.y());
+    glViewport(0, 0, dim.x,dim.y);
     // glfwSetFramebufferSizeCallback(window, viewportSizeChange);
   }
 
@@ -46,9 +46,9 @@ namespace VEngine{
       glfwSwapBuffers(window);
   }
 
-  void Window::clearScreen(RGBA col={1.0f,1.0f,1.0f,1.0f}){
+  void Window::clearScreen(rgba col={1.0f,1.0f,1.0f,1.0f}){
       // glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-      glClearColor(col.x(), col.y(), col.z(), col.w());
+      glClearColor(col.x, col.y, col.z, col.w);
       glClear(GL_COLOR_BUFFER_BIT);
   }
 
@@ -60,7 +60,7 @@ namespace VEngine{
   //  glViewport(0,0, width, height);
   //}
 
-  void Window::exitWindow(std::string message, int exit_code){
+  void Window::exitWindow(stringv message, int exit_code){
     fmt::print("EXIT MESSAGE: {} \n", message);
     glfwTerminate();
     exit(exit_code);

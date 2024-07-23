@@ -6,33 +6,33 @@
 namespace VEngine {
 
 struct WindowConf{
-  const std::string title{"Default Window"};
-  const Vec2d dim{{500, 450}};
-  const RGBA backgroundCol{{0.4f, 0.2f, 0.6f, 1.0f}};
+  const string title{"Default Window"};
+  const ivec2 dim{500, 450};
+  const rgba backgroundCol{0.4f, 0.2f, 0.6f, 1.0f};
   const bool resizable{false};
 };
 
 
 class Window {
 public:
-  Window(std::string title, Vec2d dim, RGBA backgroundCol, bool resizable);
+  Window(stringv title, ivec2 dim, rgba backgroundCol, bool resizable);
   Window(const WindowConf& conf);
 
   void displayWindow();
-  std::string getTitle() const { return _title; }
-  Vec2d getDimensions() const { return _dimensions; }
-  RGBA getBackgroundCol() const { return _backgroundCol; }
-  void clearScreen(RGBA col);
+  string getTitle() const { return _title; }
+  ivec2 getDimensions() const { return _dimensions; }
+  rgba getBackgroundCol() const { return _backgroundCol; }
+  void clearScreen(rgba col);
 
   bool windowIsOpen();
-  void exitWindow(std::string message, int exit_code);
+  void exitWindow(stringv message, int exit_code);
 
 private:
   GLFWwindow *window;
-  std::string _title{"hey"};
+  string _title{"hey"};
   bool _resizable;
-  Vec2d _dimensions{100, 100};
-  RGBA _backgroundCol{0.7f, 0.7f, 0.7f, 1.0f};
+  ivec2 _dimensions{100, 100};
+  rgba _backgroundCol{0.7f, 0.7f, 0.7f, 1.0f};
 
 //private:
 
