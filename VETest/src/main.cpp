@@ -18,5 +18,12 @@ public:
 
 int main()
 {
+  uptr<VEngine::Log> logger{VEngine::Log::Instance()};
+  logger->VTRACE("not good %s", "other");
+  logger->VFATAL("not good", "other");
+  logger->VERROR("not good", "other");
+  logger->VINFO("not good", "other");
+  logger->VWARN("not good", "other");
+  logger->VDEBUG("haha","nein");
   return 0;
 }

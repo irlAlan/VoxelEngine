@@ -61,7 +61,7 @@ namespace VEngine{
   //}
 
   void Window::exitWindow(std::string message, int exit_code){
-    fmt::println("EXIT MESSAGE: {} ", message);
+    fmt::print("EXIT MESSAGE: {} \n", message);
     glfwTerminate();
     exit(exit_code);
   }

@@ -16,19 +16,6 @@ VENGINE_API uptr<Log> Log::Instance(){
   return std::move(Instance_); // since ints a unique_ptr and cannot be copied but moved
 }
 
-
-
-  template<typename ...T>
-  VENGINE_API void Log::prnt(T &...args){
-    auto printArgs{
-      [](const auto &arg){
-        fmt::println("{}", arg);
-      }
-    };
-    (printArgs(args), ...);
-  }
-
-
 b8 initLogging(){
   // TODO: move this into Log::Instance
   // created logging file
@@ -42,10 +29,10 @@ void shutdownLogging(){
 
 
 template<typename ...T>
-VENGINE_API void Log::VFATAL(str messages, T ...args){
+VENGINE_API void Log::VFATAL(str message, T ...args){
   auto formatArgs{
-    [&messages, this](const auto &arg){
-      _logOutput(LogLevel::FATAL,messages, arg);
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::FATAL,message, arg);
     }
   };
   (formatArgs(args), ...);
@@ -53,27 +40,52 @@ VENGINE_API void Log::VFATAL(str messages, T ...args){
 
 
 template<typename... T>
-VENGINE_API void VERROR(str message, T ...args){
-
+VENGINE_API void Log::VERROR(str message, T ...args){
+  auto formatArgs{
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::ERROR,message, arg);
+    }
+  };
+  (formatArgs(args), ...);
 }
 
 template<typename... T>
-VENGINE_API void VWARN(str message, T ...args){
-
+VENGINE_API void Log::VWARN(str message, T ...args){
+  auto formatArgs{
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::WARN,message, arg);
+    }
+  };
+  (formatArgs(args), ...);
 }
 
 template<typename... T>
-VENGINE_API void VINFO(str message, T ...args){
-
+VENGINE_API void Log::VINFO(str message, T ...args){
+  auto formatArgs{
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::INFO,message, arg);
+    }
+  };
+  (formatArgs(args), ...);
 }
 
-template<typename... T> VENGINE_API void VDEBUG(str message, T ...args){
-
+template<typename... T> VENGINE_API void Log::VDEBUG(str message, T ...args){
+  auto formatArgs{
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::DEBUG,message, arg);
+    }
+  };
+  (formatArgs(args), ...);
 }
 
 template<typename... T>
-VENGINE_API void VTRACE(str message, T ...args){
-
+VENGINE_API void Log::VTRACE(str message, T ...args){
+  auto formatArgs{
+    [&message, this](const auto &arg){
+      _logOutput(LogLevel::TRACE,message, arg);
+    }
+  };
+  (formatArgs(args), ...);
 }
 
 // TODO: Test this function

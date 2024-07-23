@@ -1,7 +1,9 @@
 #pragma once
 
 #include <VEngine/Core/CoreDefines.h>
+#include <VEngine/Core/CoreIncludes.h>
 #include <mutex>
+#include <fmt/core.h>
 
 #define VRELEASE 0
 
@@ -17,6 +19,8 @@
   #define LOG_TRACE_ENABLED 1
   #define LOG_DEBUG_ENABLED 1
 #endif
+
+namespace VEngine{
 
 // Defining log levels
 enum class LogLevel : u16{
@@ -52,7 +56,7 @@ protected:
   Log() = default;
 private:
   template<typename... T>
-  VENGINE_API void _logOutput(LogLevel level, std::string message, T ...args);
+  VENGINE_API void _logOutput(LogLevel level, std::string message, T &...args);
   static uptr<Log> Instance_;
   static std::mutex m_;
 
@@ -63,3 +67,6 @@ public:
   Log(const Log &) = delete; // singletons should not be copyable
   Log &operator=(const Log &) = default; // should not be assignable
 };
+}
+
+#include "./Logger.inl"

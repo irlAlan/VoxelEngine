@@ -38,9 +38,6 @@ public:
   b8 initLogging();
   void shutdownLogging();
 
-  template<typename ...T>
-  VENGINE_API void prnt(T &...args);
-
   template<typename... T>
   VENGINE_API void VFATAL(str message, T ...args);
   template<typename... T>
