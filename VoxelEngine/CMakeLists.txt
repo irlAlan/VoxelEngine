@@ -39,13 +39,33 @@ add_library(${LIB_NAME} SHARED
 )
 
 # add dependencies
-include(cmake/CPM.cmake)
+# include(cmake/CPM.cmake)
 include(FetchContent)
 
-CPMAddPackage("gh:fmtlib/fmt#7.1.3")
-CPMAddPackage("gh:glfw/glfw#3.4")
+# CPMAddPackage("gh:fmtlib/fmt#7.1.3")
+# CPMAddPackage("gh:glfw/glfw#3.4")
 #CPMAddPackage("gh:iauns/cpm-glm#1.0.1")
 #CPMAddPackage("gl:libeigen/eigen#3.4.0")
+
+
+
+FetchContent_Declare(
+  fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt
+  GIT_TAG 11.0.2
+)
+FetchContent_MakeAvailable(fmt)
+
+
+
+FetchContent_Declare(
+  glfw
+  GIT_REPOSITORY https://github.com/glfw/glfw
+  GIT_TAG 3.4
+)
+FetchContent_MakeAvailable(glfw)
+
+
 
 FetchContent_Declare(
   glm
