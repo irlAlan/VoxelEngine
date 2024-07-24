@@ -1,4 +1,5 @@
 #include <VEngine/Window.h>
+#include <VEngine/Core/Asserts.h>
 
 namespace VEngine{
 
@@ -23,6 +24,7 @@ namespace VEngine{
     #endif
 
     window = glfwCreateWindow(dim.x, dim.y,title.data(), nullptr,nullptr);
+
     if (window == NULL)
     {
       exitWindow("Could not create Window", -1);

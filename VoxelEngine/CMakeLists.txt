@@ -30,12 +30,14 @@ add_library(${LIB_NAME} SHARED
   ./include/KHR/khrplatform.h
   ./include/VEngine/Core/Logger.h
   ./include/VEngine/Core/Logger.inl
+  ./include/VEngine/Core/Asserts.h
   ./include/VEngine/Core/CoreDefines.h
   ./include/VEngine/Core/CoreIncludes.h
   ./include/VEngine/Shapes.h
   ./include/VEngine/Window.h
   ./include/VEngine/Shaders.h
   ./include/VEngine/VEngine.h
+
 )
 
 # add dependencies

@@ -44,8 +44,8 @@ static_assert(sizeof(f64) == 8, "Expected f64 to be 8 byte.");
 #define false 0
 
 // memory pointers defs
-template <typename T>
-using uptr = std::unique_ptr<T>;
+//template <typename T>
+//using uptr = std::unique_ptr<T>;
 
 /* Matrix<2, 1>
  * [int]
