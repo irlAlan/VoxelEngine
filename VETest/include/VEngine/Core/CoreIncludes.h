@@ -1,7 +1,13 @@
 #pragma once
 
+
+#include "glm/fwd.hpp"
+#include <string>
+#include <memory>
+
+
+#include <glm/glm.hpp>
 #include <VEngine/Core/CoreDefines.h>
-#include <eigen3/Eigen/Dense>
 
 #define GLFW_INCLUDE_NONE
 #include <glad/glad.h>

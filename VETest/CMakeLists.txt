@@ -14,7 +14,15 @@ file(GLOB SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
 find_package(fmt CONFIG REQUIRED)
 find_package(glfw3)
-find_package(Eigen3 REQUIRED)
+
+include(FetchContent)
+FetchContent_Declare(
+  glm
+  GIT_REPOSITORY https://github.com/g-truc/glm
+  GIT_TAG 1.0.1
+)
+FetchContent_MakeAvailable(glm)
+
 
 add_library(VoxelEngine SHARED IMPORTED)
 
@@ -24,4 +32,4 @@ set_target_properties(VoxelEngine PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_S
 
 add_executable(VoxelExampleApp ${SRC_FILES})
 
-target_link_libraries(VoxelExampleApp PUBLIC glfw fmt::fmt Eigen3::Eigen VoxelEngine)
+target_link_libraries(VoxelExampleApp PUBLIC glfw fmt::fmt glm::glm)

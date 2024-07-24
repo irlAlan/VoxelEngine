@@ -1,9 +1,6 @@
 #pragma once
 
-#include <eigen3/Eigen/Dense>
-#include <string>
-#include <memory>
-
+#include <VEngine/Core/CoreIncludes.h>
 
 // unsigned types
 using u8  = unsigned char;
@@ -26,7 +23,8 @@ using b8 = char;
 using b32 = int;
 
 // string wrapper
-using str = std::string;
+using string = std::string;
+using stringv = std::string_view;
 
 static_assert(sizeof(u8)  == 1, "Expected u8 to be 1 byte.");
 static_assert(sizeof(u16) == 2, "Expected u16 to be 2 byte.");
@@ -53,12 +51,14 @@ using uptr = std::unique_ptr<T>;
  * [int]
  * [int]
 */
-using Vec2d = Eigen::Matrix<int, 2,1>;
+// using Vec2d = Eigen::Matrix<int, 2,1>;
+using ivec2 = glm::ivec2;
 
 /* Matrix<1, 4>
  * [float][float][float][float]
 */
-using RGBA = Eigen::Matrix<float, 1, 4>;
+//using RGBA = Eigen::Matrix<float, 1, 4>;
+using rgba = glm::fvec4;
 
 #ifdef __cplusplus
 extern "C"{

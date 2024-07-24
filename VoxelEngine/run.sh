@@ -1,6 +1,6 @@
 #!/bin/bash
 
-prinf "Started VoxelEngine Build...\n\n\n";
+printf "Started VoxelEngine Build...\n\n\n";
 
 cmake -B build/;
 cmake --build build/;

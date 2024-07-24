@@ -1,17 +1,17 @@
 #pragma once
 
-#include <string_view>
+#include "VEngine/Core/CoreDefines.h"
 
 class Shaders{
 public:
   // program ID
   unsigned int ID;
 
-  Shaders(std::string_view vertexPath, std::string_view fragmentPath);
+  Shaders(stringv vertexPath, stringv fragmentPath);
   void useShaderProgram();
   void unuseShaderProgram();
   //util funcs
-  void setBool(std::string_view name, bool value)const;
-  void setInt(std::string_view name, int value)const;
-  void setFloat(std::string_view name, float value)const;
+  void setBool(stringv name, bool value)const;
+  void setInt(stringv name, int value)const;
+  void setFloat(stringv name, float value)const;
 };
