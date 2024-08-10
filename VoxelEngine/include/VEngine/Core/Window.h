@@ -44,7 +44,7 @@ public:
       : _title(other._title), _dimensions(other._dimensions),
         _backgroundCol(other._backgroundCol) {}
   // copy assignment operator
-  Window &operator=(const VEngine::Window &other) {
+  Window &operator=(const Window &other) {
     if (this != &other) {
       *this = other;
     }
@@ -76,4 +76,5 @@ public:
     exitWindow("closing window", 0);
   }
 };
+
 } // namespace VEngine

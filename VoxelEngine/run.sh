@@ -11,7 +11,7 @@ mv ./build/libVoxelEngine.so  ../VETest/lib/
 
 printf "Copying includes over to samples\n\n\n";
 
-cp -r include ../VETest/include/;
+cp -r include/ ../VETest/;
 
 printf "Finished with VoxelEngine\n\n\n";
 

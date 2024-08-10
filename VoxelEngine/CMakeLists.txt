@@ -34,7 +34,7 @@ add_library(${LIB_NAME} SHARED
   ./include/VEngine/Core/CoreDefines.h
   ./include/VEngine/Core/CoreIncludes.h
   ./include/VEngine/Shapes.h
-  ./include/VEngine/Window.h
+  ./include/VEngine/Core/Window.h
   ./include/VEngine/Shaders.h
   ./include/VEngine/VEngine.h
 
