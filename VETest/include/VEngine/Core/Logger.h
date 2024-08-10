@@ -2,7 +2,6 @@
 
 #include <VEngine/Core/CoreDefines.h>
 #include <VEngine/Core/CoreIncludes.h>
-#include <mutex>
 #include <fmt/core.h>
 
 #define VRELEASE 0
@@ -20,7 +19,6 @@
   #define LOG_DEBUG_ENABLED 1
 #endif
 
-namespace VEngine{
 
 // Defining log levels
 enum class LogLevel : u16{
@@ -35,41 +33,40 @@ enum class LogLevel : u16{
 class  Log{
 public:
   // move you inside the static Instance func
-  b8 initLogging();
-  void shutdownLogging();
+  // b8 initLogging();
+  // void shutdownLogging();
 
   template<typename ...T>
-  VENGINE_API void prnt(stringv message, T &&...args);
+  VENGINE_API void VFATAL(stringv message, T &&...args);
+  template<typename... T>
+  VENGINE_API void VERROR(stringv message, T &&...args);
+  template<typename ...T>
+  VENGINE_API void VWARN(stringv message, T &&...args);
+  template<typename ...T>
+  VENGINE_API void VINFO(stringv message, T &&...args);
+  template<typename ...T>
+  VENGINE_API void VDEBUG(stringv message, T &&...args);
+  template<typename ...T>
+  VENGINE_API void VTRACE(stringv message, T &&...args);
 
+  // left public so user can add custom logs if they want
   template<typename... T>
-  VENGINE_API void VFATAL(stringv message, T ...args);
-  template<typename... T>
-  VENGINE_API void VERROR(stringv message, T ...args);
-  template<typename... T>
-  VENGINE_API void VWARN(stringv message, T ...args);
-  template<typename... T>
-  VENGINE_API void VINFO(stringv message, T ...args);
-  template<typename... T>
-  VENGINE_API void VDEBUG(stringv message, T ...args);
-  template<typename... T>
-  VENGINE_API void VTRACE(stringv message, T ...args);
+  VENGINE_API void  _logOutput(LogLevel level, stringv message, T &&...args);
 
-  VENGINE_API static uptr<Log> Instance();
+  VENGINE_API static Log &Instance(){
+    static Log Instance_;
+    return Instance_;
+  }
+
 protected:
-  Log() = default;
 private:
-  template<typename... T>
-  VENGINE_API void _logOutput(LogLevel level, stringv message, T &...args);
-  static uptr<Log> Instance_;
-  static std::mutex m_;
+  Log() = default;
+  ~Log() = default;
 
 public:
-  ~Log() = default;
   Log(Log &&) = default;
   Log &operator=(Log &&) = default;
   Log(const Log &) = delete; // singletons should not be copyable
   Log &operator=(const Log &) = default; // should not be assignable
 };
-}
-
 #include "./Logger.inl"

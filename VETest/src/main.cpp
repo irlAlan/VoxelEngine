@@ -1,7 +1,8 @@
-#include "VEngine/Core/CoreDefines.h"
+#include <VEngine/Core/Asserts.h>
 #include <VEngine/VEngine.h>
 #include <VEngine/Core/Logger.h>
 #include <fmt/core.h>
+#include <VEngine/Core/Window.h>
 
 class Engine : public VEngine::VEngine
 {
@@ -19,8 +20,12 @@ public:
 
 int main()
 {
-  uptr<VEngine::Log> logger{VEngine::Log::Instance()};
-  logger->VTRACE("not good %s", "other");
-  logger->prnt("Hey {} my name is {}", "there", "alan");
+  // Log::Instance().VTRACE("not good {}", "other");
+
+  VEngine::WindowConf winConf{"Hey there",{600, 500},{1,1,1,1},false};
+  VEngine::Window win{winConf};
+  while(true){
+    win.displayWindow();
+  }
   return 0;
 }

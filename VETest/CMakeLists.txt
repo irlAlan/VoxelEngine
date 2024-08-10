@@ -23,13 +23,24 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(glm)
 
-
 add_library(VoxelEngine SHARED IMPORTED)
+
 
 # Provide the full path to the library, so CMake knows where to find it.
 set_target_properties(VoxelEngine PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/lib/libVoxelEngine.so)
 
 
-add_executable(VoxelExampleApp ${SRC_FILES})
+add_executable(VoxelExampleApp ${SRC_FILES}
+  #  "./include/VEngine/Shapes.h"
+  #  "./include/VEngine/Shaders.h"
+  #  "./include/VEngine/VEngine.h"
+  #  "./include/VEngine/Core/Logger.h"
+  #  "./include/VEngine/Core/Logger.inl"
+  #  "./include/VEngine/Core/Window.h"
+  #  "./include/VEngine/Core/Asserts.h"
+  #  "./include/VEngine/Core/File_IO.h"
+  #  "./include/VEngine/Core/CoreDefines.h"
+  #  "./include/VEngine/Core/CoreIncludes.h"
+)
 
-target_link_libraries(VoxelExampleApp PUBLIC glfw fmt::fmt glm::glm)
+target_link_libraries(VoxelExampleApp PUBLIC VoxelEngine glfw fmt::fmt glm::glm)
