@@ -1,0 +1,7 @@
+lib
+build
+.cache
+VETest/_CMakeListsOld.txt
+VETest/include/glad
+VETest/include/KHR
+VoxelEngine
